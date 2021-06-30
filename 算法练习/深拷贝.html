@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 深拷贝
+    function checked(target) {
+      return Object.prototype.toString.call(target).slice(8,-1)
+    }
+    function clone(target) {
+      let res;
+      if(checked(target) === 'Object') {
+        res = {}
+      }else if(checked(target) === 'Array') {
+        res = []
+      }else {
+        return target
+      }
+
+      for(let i in target) {
+        let value = target[i]
+        if (checked(value) === 'Object' || checked(value) === 'Array') {
+          res[i] = clone(value)
+        }else {
+          res[i] = value
+        }
+      }
+      return res
+    }
+    let x = [1,2,3]
+    let y = clone(x);
+    console.log(x);
+    console.log(x === y);
+  </script>
+</body>
+</html>

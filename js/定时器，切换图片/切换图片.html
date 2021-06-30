@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <img id="img1" src="./img/1.JPG" alt="图片">
+    <br><br>
+    <button id="sta">开始</button>     
+    <button id="end">结束</button>
+    <script>
+        var arr = ["./img/1.JPG","./img/2.JPG","./img/3.JPG","./img/4.JPG","./img/5.JPG"];
+        var index = 0;   //数组索引
+        var timer;   //计时器标识
+        var img1 = document.getElementById("img1");
+        var sbtn01 = document.getElementById("sta");
+        var end = document.getElementById("end");
+
+        sta.onclick = function(){
+            clearInterval(timer);
+            timer = setInterval(function(){
+            index++;
+            index = index % arr.length; 
+            img1.src = arr[index];
+            },1000);  
+
+        };
+        end.onclick = function(){
+             clearInterval(timer);
+
+         };
+
+
+          
+
+
+
+
+       
+               
+        
+
+    </script>
+
+
+
+</body>
+</html>

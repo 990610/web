@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            left: 0px;
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+            position:absolute;
+        }
+        #box2{
+            
+            left: 0px;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position:absolute;
+            top: 200px; 
+        }
+        
+            
+    </style>
+</head>
+<body>
+    <!-- 按钮 -->
+    <button id="btn">点击按钮Box1向右移动</button>           
+    <button id="btn01" style="margin-left: 10px;">点击按钮box1向左移动</button>
+    <button id="btn02" style="margin-left: 10px;">点击按钮box2向右移动</button>
+    <button id="btn03" style="margin-left: 10px;">点击按钮box1向下移动</button>
+    <br><br><br>
+
+    <div id="box1"></div>
+    <br><br><br><br>
+    <div id="box2"  class="b"></div>
+    <!-- 两根线 -->
+    <div style="top:0px;width: 1px;height: 300px;left: 800px;background-color: black;position: absolute;"></div>
+    <div style="top:0px;width: 1px;height: 300px;left: 300px;background-color: black;position: absolute;"></div>
+    
+
+    
+    <script src="./tools.js"></script>
+    <script>
+        var timer;
+        var box1 = document.getElementById("box1");
+        var btn = document.getElementById("btn");
+        var btn01 = document.getElementById("btn01");
+        var btn02 = document.getElementById("btn02");
+        var btn03 = document.getElementById("btn03");//box1向下移动
+        //box1,向右移动,速度10，目标位置800px
+        btn.onclick = function(){ 
+            move(box1 ,"left" , 10 , 800);
+        };
+        //box1,先下后上移动，宽度增加到800，速度均为10，目标800px；
+        btn03.onclick = function(){ 
+            move(box1 ,"top" , 10 , 500 , function(){    //先向下 ，，
+                move(box1 ,"top" , 10 , 50 , function(){   //后向上
+                    move(box1 ,"width" , 10 , 700 , function(){ //宽度增加到700
+                    });
+            });
+            });
+        };
+         //box1向左移
+         btn01.onclick = function(){
+           move(box1 ,"left" ,10 , 300);
+        }; 
+        // box2向右移动
+        btn02.onclick = function(){
+            move(box2 ,"left" ,20 , 800)
+        };
+        //向右移动
+        /* btn.onclick = function(){
+            clearInterval(timer);
+            //clearInterval(timer2);
+            timer = setInterval(function(){    
+            
+            var oldvalue = parseInt( getStyle(box1,"left"));
+            var newvalue = oldvalue + 10;
+            if(newvalue > 800){
+               newvalue = 800;
+              }
+            box1.style.left =  newvalue + "px";
+
+            if(newvalue == 800){
+                clearInterval(timer);
+              }
+           },30) ;
+        };  */
+    </script>
+</body>
+</html>

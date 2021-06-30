@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    li {
+      margin: 50px;
+      background-color: yellowgreen;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </div>
+
+  <script>
+    var tag = document.getElementsByTagName('li');
+    for(let i = 0; i < tag.length; i++) {
+      // 虽然function函数是在循环完之后再结束，
+      // 但是循环完的时候有tag[0].index  tag[1].index   ...存在
+      // 所以每一个function函数会去找对应的那个tag
+      tag[i].tabIndex = i;
+      tag [i].onmousemove = function() {
+      console.log(this.tabIndex);
+      }
+    }
+    
+  </script>
+</body>
+</html>

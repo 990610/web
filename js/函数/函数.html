@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        function sum(b){
+            console.log(b);
+ 
+        }
+       function str(a){
+           return a+1
+
+       }
+       sum(str());/* 返回str执行结果 */
+       sum(str);/* 调用str函数，不执行 */
+    </script> -->
+
+
+
+   <!--  <script>
+        function fun1(){
+            // 函数里面再调用函数
+            function fun2(){
+                console.log('这是fun2');
+            }
+            fun2();
+        }
+        fun1();
+    </script> -->
+
+
+    <script>
+        function fun1(){
+            function fun2(){
+                console.log('这是fun2');  
+            }
+            //return fun2;//返回函数对象
+            return fun2();//返回fun2函数的结果
+        }
+        var a = fun1();
+        console.log(a);
+        a();
+
+    </script>
+</body>
+</html>

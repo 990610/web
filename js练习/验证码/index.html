@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 50px 200px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <span class="checkCode"></span> &nbsp;
+    <span><a  id="cut">看不清,点击换一张</a></span>
+  </div>
+  <div class="auth-code">
+     验证码：<input type="text" id="input-code">
+  </div>
+  <div>
+    <button id="btn">确定</button>
+  </div>
+  <!-- 生成随机的六位数验证码 -->
+  <!-- 点击切换随机数 -->
+  <!-- 点击确认 -->
+  <script>
+    // 通过数组下标实现随机从0-9，a-f中选出6个数
+    function getCode() {
+      var arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+      var src = '';
+      for(var i = 0; i < 6; i++) {
+        var num = Math.floor(Math.random()*15);
+        src += arr[num];
+      }
+      return src;
+    }
+    var res = getCode();
+    // 获取并修改span元素内的文本
+    var code = document.getElementsByClassName('checkCode')[0];
+    code.innerText = res;
+
+    //点击切换随机数
+    var cut = document.getElementById('cut');
+    cut.onclick = function (){
+      var res = getCode();
+      code.innerHTML = res;
+    }
+
+    // 验证是否正确
+    var btn = document.getElementById('btn');
+    var inCode = document.getElementById('input-code');
+    btn.onclick = function () {
+      // 通过getElementById等可以获取元素的value等属性
+      if( code.innerText != inCode.value) {
+        alert('不正确');
+        inCode.value = '';
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .pink{
+      color: pink;
+    }
+    .red{
+      color: red;
+      
+    }
+    
+
+  </style>
+</head>
+<body>
+  <div id="box">
+    <!-- 动态绑定class属性 -->
+    <h2 v-bind:class="{pink: ispink , red: isred}">{{message}}</h2>
+    <h2 :class="{pink: ispink , red: isred}">{{message}}</h2>
+    <!-- 点击按钮改变颜色 -->
+    <button v-on:click="btnClick()">按钮</button>
+  </div>
+  <br>
+  <br>
+  <br>
+<!-- 动态绑定style(驼峰命名css属性名) -->
+    <!-- <div id="box1" :style='{backgroundColor:finalColor , width:"100px" , height:finalHeight}'></div> -->
+    <!-- 也可以用函数来封装 -->
+    <div id="box1" :style='getStyles()'></div>
+  <script src="../vue.js"></script>
+  <script>
+    const box = new Vue({
+      el:'#box',
+      data:{
+        message:'你好啊，卢本伟',
+        ispink:true,
+        isred:false,
+        
+      },
+      methods:{
+        btnClick:function(){
+          this.isred = !this.isred
+        }
+      },
+    })
+
+
+    
+  </script>
+  <script>
+    const box1 = new Vue({
+      el:'#box1',
+      data:{
+        finalColor:'pink',
+        finalHeight:'100px',
+
+      },
+      methods :{
+        getStyles:function (){
+          return {backgroundColor:this.finalColor , width:"100px" , height:this.finalHeight}
+        }
+      }
+    })
+
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

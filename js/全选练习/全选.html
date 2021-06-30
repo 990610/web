@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post"  >
+        你爱好的运动是？<input type="checkbox" id="checkedallbox">全选/全不选
+        <br>
+        <input type="checkbox" name="items" value="足球">足球
+        <input type="checkbox" name="items" value="篮球">蓝球
+        <input type="checkbox" name="items" value="羽毛球">羽毛球
+        <input type="checkbox" name="items" value="乒乓球">乒乓球
+        <br>
+        <input type="button" id="checkedAll" value="全选">
+        <input type="button" id="checkedNO" value="全不选">
+        <input type="button" id="checkedre" value="反选">
+        <input type="button" id="send" value="提交">
+    </form>
+     
+     <script>
+         var checkedAll = document.getElementById("checkedAll");
+         //  选中四个选项
+         var items = document.getElementsByName("items");
+         var checkedallbox = document.getElementById("checkedallbox");
+         
+         /* 全选 */
+         checkedAll.onclick = function(){
+            //  遍历
+            for(var i= 0 ; i<items.length ; i++){
+                items[i].checked = true;
+            }
+            // checkedallbox.checked = true;
+         };
+        /* 全不选 */
+        var checkedNO = document.getElementById("checkedNO");
+        checkedNO.onclick = function(){
+            // 全不选
+            // var items = document.getElementsByTagName("items")
+            for(var i= 0 ; i<items.length ; i++){
+                items[i].checked = false;
+            }  
+            // checkedallbox.checked = false;
+
+        };
+        /* 反选 */
+        var checkedre = document.getElementById("checkedre");
+        checkedre.onclick = function(){
+            for(var i= 0 ; i<items.length ; i++){
+
+                // 判断状态
+               /* if( items[i].checked == true){
+                   items[i].checked = false;
+            }else{
+                   items[i].checked = true;
+                 } */
+                 items[i].checked = ! items[i].checked ;  
+            }  
+            checkedallbox.checked = true;
+                for(var j=0 ; j<items.length ; j++){
+                    if(!items[j].checked ){
+                        checkedallbox.checked = false;
+                        
+                    }
+                };
+            
+
+
+
+        };
+        /* 提交 */
+        var send = document.getElementById("send");
+        send.onclick = function(){
+            for(var i= 0 ; i<items.length ; i++){
+                if(items[i].checked == true){
+                    alert(items[i].value);
+                }  
+            }  
+        }
+        /* 全选全不选多选快 */
+        var checkedallbox = document.getElementById("checkedallbox");
+        checkedallbox.onclick = function(){
+            for(var i= 0 ; i<items.length ; i++){
+                // items[i].checked = checkedallbox.checked ;
+                // 用this。事件响应时，绑定的是谁，this就是谁。
+                items[i].checked = this.checked;
+            }
+        };
+        /* 将多选快与全选块联系 */
+        for(var i= 0 ; i<items.length ; i++){
+            items[i].onclick = function(){
+                checkedallbox.checked = true;
+                for(var j=0 ; j<items.length ; j++){
+                    if(!items[j].checked ){
+                        checkedallbox.checked = false;
+                        
+                    }
+                };
+            };
+        };
+     </script>
+     
+</body>
+</html>

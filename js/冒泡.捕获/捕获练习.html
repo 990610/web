@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            background-color: chartreuse;
+        }
+        #u1{
+            width: 100px;
+            height:100px;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">创建新链接</button>
+    <div id="box">
+        <ul id="u1">
+            <li>
+                <p>我是</p>
+            </li>
+            <li ><a href="javascript:;" class="link">百度</a></li>
+            <li ><a href="javascript:;" class="link">百度</a></li>
+        </ul>
+    </div>
+
+    <script>
+        var box = document.getElementById("box");
+        var u1 = document.getElementById("u1");
+        var btn = document.getElementById("btn");
+        var arr = document.getElementsByTagName("li");
+        
+
+        btn.onclick = function(){
+            var li = document.createElement("li");
+            li.innerHTML ='<a href="avascript:;" class="link">百度</a>';
+            u1.appendChild(li);
+        };
+        u1.onclick = function(event){
+            var event = event || window.event;
+           if(event.target.className == "link"){
+               alert("dafsdf");
+           }      
+        };
+     
+        
+
+          
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 柯理化是指，将接受多个参数的函数转换成接受一个一个参数的函数
+    // 初步封装
+    var currying = function(fn) {
+      // args 获取第一个方法内的全部参数
+      var args = Array.prototype.slice.call(arguments, 1)
+      return function() {
+        // 将后面方法里的全部参数和args进行合并
+        var newArgs = args.concat(Array.prototype.slice.call(arguments))
+        // 把合并后的参数通过apply作为fn的参数并执行
+        return fn.apply(this, newArgs)
+      }
+    }
+  
+  // 经典面试题，实现
+  // add(1)(2)(3) = 6
+  // add(1,2,3)(4) = 10            
+  // add(1)(2)(3)(4)(5) = 15
+  function add() {
+    const numberList = Array.from(arguments);
+    // 进一步收集剩余参数,利用闭包保存了numberList变量
+    const calculate = function() {
+      numberList.push(...arguments);
+      return calculate;
+    }
+    // 利用toString隐式转换的特性，最后执行时进行隐式转换
+    calculate.toString = function() {
+      return numberList.reduce((a,b) => {
+        return a + b
+      });
+    }
+    return calculate
+  }             
+  let x = add(1,2,3,5)
+  console.log(x);
+  console.log(add(1)(2));
+  console.log(add(1)(2)(3,4));
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./样式重置/reset.css">
+  <style>
+    /* 表盘 */
+    .clock {
+      width: 500px;
+      height: 500px;
+      /* background-color: #bbffaa; */
+      margin: 20px auto;
+      border-radius: 50%;
+      background-image: url(./img/时钟.png);
+      background-size: cover;
+      position: relative;
+    }
+    .clock div {
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+    /* 装秒针的盒子 */
+    .second {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      margin:  auto;
+      /* 给盒子添加动画 */
+      animation: run 60s steps(60) infinite;
+    }
+    /* 秒针 */
+    .second-hand {
+      width: 6px;
+      height: 50%;
+      margin: 0px auto;
+      background-color: red;
+      z-index: 80;
+    }
+    /* 分针盒子 */
+    .min {
+      width: 65%;
+      height: 65%;
+      position: absolute;
+      /* background-color: yellowgreen; */
+      margin: auto;
+      animation: run 3600s steps(60) infinite;
+    }
+    /* 分针 */
+    .min-hand {
+      width: 4px;
+      height: 50%;
+      background-color: black;
+      margin: 0 auto;
+      z-index: 60;
+    }
+    /* 时针盒子 */
+    .hour {
+      width: 50%;
+      height: 50%;
+      /* background-color: brown; */
+      position: absolute;
+      margin: auto;
+      animation: run 216000s infinite linear;
+    }
+    /* 时针 */
+    .hour-hand {
+      width: 5px;
+      height: 50%;
+      background-color: black;
+      margin: auto;
+      z-index: 1;
+    }
+
+    /* 设置动画 */
+    @keyframes run {
+      from {
+        transform: rotateZ(0deg);
+      }
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+
+    <!-- 秒针 -->
+    <div class="second">
+      <div class="second-hand"></div>
+    </div>
+    <!-- 分针 -->
+    <div class="min">
+      <div class="min-hand"></div>
+    </div>
+    <!-- 时针 -->
+    <div class="hour">
+      <div class="hour-hand"></div>
+    </div>
+    
+
+
+
+
+  </div>
+</body>
+</html>

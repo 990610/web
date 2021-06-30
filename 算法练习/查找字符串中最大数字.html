@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 给一个字符串，查找最大数
+    // h1a50  => 50
+    var maxValue = function(str) {
+      let res = '0' , arr = [],sum = ''
+      arr = str.split('')
+      for(let i = 0; i < arr.length; i++) {
+        if(isNaN(arr[i]) == false) {
+          // 是数字
+          sum = sum + arr[i]
+          res = Math.max(parseInt(sum),parseInt(res))
+        }else {
+          sum = ''
+        }
+      }
+
+      return res
+    }
+    console.log(maxValue('h111a500'));
+    console.log(maxValue('111a500'));
+    console.log(parseInt('12.5'));
+  </script>
+</body>
+</html>

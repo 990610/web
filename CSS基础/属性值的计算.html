@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            color: red;/*问，a元素的值为什么不是红色，p元素的值为什么是红色*/
+            
+      
+  
+        }
+        a{/*重置样式表一般都会加上*/
+            /*没有下划线，颜色继承父元素*/
+            text-decoration:none;
+            color:inherit;/*强制继承，相当于提前声明*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="">举个例子</a>
+        <p>
+            p 元素
+        </p>
+    </div>
+</body>
+</html>

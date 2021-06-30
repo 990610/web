@@ -1,0 +1,16 @@
+{
+  "id": "2262687",
+  "name": "jidong",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7235211",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    }
+  ]
+}

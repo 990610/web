@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="./轮播图样式.css">
+</head>
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img src="./img/1.JPG" alt="tupian"></li>
+            <li><img src="./img/2.JPG" alt="tupian"></li>
+            <li><img src="./img/3.JPG" alt="tupian"></li>
+            <li><img src="./img/4.JPG" alt="tupian"></li>
+            <li><img src="./img/5.JPG" alt="tupian"></li>
+            <li><img src="./img/1.JPG" alt="tupian"></li>
+            
+        </ul>
+        <div id="navDiv">
+            <a  href="javascript:;"></a>     
+            <a  href="javascript:;"></a>
+            <a  href="javascript:;"></a>
+            <a  href="javascript:;"></a>
+            <a  href="javascript:;"></a>
+            
+        </div>
+    </div>
+    <script src="../定时器的应用/tools.js"></script>
+    <script>
+        var imgList = document.getElementById("imgList");
+        var imgArr = document.getElementsByTagName("img");
+        //设置ul宽度
+        imgList.style.width = 510*imgArr.length + "px";
+       /* 设置导航按扭居中 */
+       var navDiv = document.getElementById("navDiv");
+       var outer =document.getElementById("outer");
+       navDiv.style.left =(outer.offsetWidth - navDiv.offsetWidth)/2 + "px";
+       /* 默认显示图片索引 */
+       var index = 0;
+       var allA = document.getElementsByTagName("a");
+       allA[index].style.backgroundColor = "black";
+
+      /* 点击超链接切换图片 */
+      for(var i = 0; i < allA.length; i++){
+          allA[i].num = i;//为每一个超链接添加一个属性num
+          allA[i].onclick = function(){
+            index = this.num;
+            setA();
+             //imgList.style.left = -510 * index + "px";
+            //调用move函数，实现动画效果
+            move(imgList , "left" , 30 , -510 * index , function(){} );
+          };
+      }
+       //   自动切换图片
+       autoChange();
+      //设置选中的a样式
+      function autoChange(){
+          setInterval(function(){
+            index ++;
+            index %= imgArr.length;
+            move(imgList , "left" , 40 , -510 * index , function(){
+                setA();
+               
+            });
+            
+          },3000);
+      } 
+      function setA(){
+          if(index >= imgArr.length - 1 ){
+              imgList.style.left = 0 ;
+              index = 0 ;
+          }
+          //遍历所有a，设置背景颜色
+          for(var i=0 ; i<allA.length ; i++){
+              allA[i].style.backgroundColor = "";//内联样式等级比样式表高
+          }
+          allA[index].style.backgroundColor = "yellow";
+      }
+
+
+
+    </script>
+</body>
+</html>

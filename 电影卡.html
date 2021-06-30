@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电影卡</title>
+  <link rel="stylesheet" href="./样式重置/reset.css">
+  <link rel="stylesheet" href="./img/星图标/iconfont.css">
+  <link rel="stylesheet" href="./img/微博图标/iconfont.css">
+  <link rel="stylesheet" href="./img/map小图标/iconfont.css">
+  <style>
+    body {
+      background-color: rgb(253, 252, 252);
+    }
+    .box {
+      box-shadow: 0px 5px 15px rgba(71, 46, 46, 0.3);
+      width: 300px;
+      /* 不设置高度，让内容自然撑开 */
+      /* 设置容器居中 */
+      margin: 100px auto;
+    }
+
+    /* 设置图片不超过容器大小 */
+    .card img{
+      width: 100%;
+    }
+    .content {
+      margin: 0px 15px;
+      color: rgb(201,202,206); 
+      line-height: 30px;
+    }
+    .bar {
+      line-height: 30px;
+      margin: 0px 15px
+    }
+
+    /* 设置星的颜色 */
+    .star {
+    color: rgb(182,192,54);
+    border-top: 1px solid #e9e9e9;
+    line-height: 46px;
+    }
+    /* 设置li浮动 */
+    .star li{
+      display: inline;
+      margin: 0px 10px
+      /* float: left; */
+    }
+    .star-own {
+    color: rgb(221,218,221);
+    }
+    /*设置i浮动 */
+    .star i {
+      float: right;
+      margin: auto 20px;
+    }
+    
+    /* 通过变形，达到浮出的效果 */
+    .box {
+     transition: all 0.3s;
+    }
+    .box:hover {
+      
+      transform: translateY(-4px);
+      box-shadow: 0 0 4px rgba(0,0,0 ,0.5);
+      
+    }
+  </style>
+</head>
+<body>
+  <h2 style="margin:100px 10px 0px 500px">鼠标移上，有浮出效果</h2>
+  <!-- 外层容器 -->
+  <div class="box">
+    <!-- 图片容器 -->
+    <div class="card">
+      <img src="./img/电影卡.png" alt="">
+    </div>
+    <!-- bar -->
+    <div class="bar">
+      <h2>这是一个电影</h2>
+      <i class="iconfont">&#xe65d;</i>动画
+    </div>
+    <!-- 内容区 -->
+    <div class="content">
+      <h2>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint dolorem .
+      </h2>
+    </div>
+    <!-- 评分区 -->
+    <div class="star">
+      <li class="iconfont">&#xe615;</li>
+      <li class="iconfont">&#xe615;</li>
+      <li class="iconfont star-own">&#xe615;</li>
+      <li class="iconfont star-own">&#xe615;</li>
+      <i class="iconfont">&#xe60a;</i>
+    </div>
+  </div>
+</body>
+</html>

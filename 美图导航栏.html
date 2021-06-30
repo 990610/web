@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./样式重置/reset.css">
+  <link rel="stylesheet" href="./img/用户图标/iconfont.css">
+  <style>
+    /* 设置外部容器样式 */
+    .box {
+      height: 50px;
+      padding: 0 50px;
+      background-color: silver;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+    .center {
+      width: 70px;
+    }
+/* 设置左侧样式 */
+    .left {
+      width: auto;
+      height: 25px;
+    }
+    .ico {
+      width: 18px;
+    }
+    /* 三根横线的样式 */
+    .left .ico li {
+      width: 18px;
+      height: 1px;
+      background-color: white;
+      position: absolute;
+      /* 修改变形的原点 */
+      transform-origin: left;
+      transition: all .5s;
+    }
+/* 三根横线的样式 */
+    .ico li:nth-child(1) {
+      top:18px;
+    }
+    .ico li:nth-child(2) {
+      top:24px;
+    }
+    .ico li:nth-child(3) {
+      top:30px;
+    }
+/* 设置横线的动画效果，hover效果 */
+    .left:hover .ico li:nth-child(1) {
+      transform: rotateZ(40deg);
+    }
+    .left:hover .ico li:nth-child(2) {
+      opacity: 0;
+    }
+    .left:hover .ico li:nth-child(3) {
+      transform: rotateZ(-40deg);
+    }
+    /* 设置下拉框出现 */
+    .left:hover .nav {
+      display: block;
+    }
+    /* 设置下拉框样式 */
+    .nav {
+      /* 设置隐藏 */
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: black;
+    }
+    /* 设置下拉框里的内容 */
+    .nav li {
+      width: 80%;
+      margin: 0px auto;
+      border-bottom: solid white;
+    }
+    .nav a {
+      display: block;
+      padding: 20px;
+      line-height: 14px;
+      font-size: 14px;
+      
+    }
+    /* 设置媒体查询 and表示连接 ,表示或者*/
+    @media screen and (max-width: 786px){
+      .left .ico {
+        display: none;
+      }
+      .left {
+        order: 2;
+        flex: auto;
+      }
+      .hid li {
+        width: auto;
+        border-bottom: none;
+      }
+      .left .hid {
+        display: flex;
+      }
+
+      .left .nav{
+        display: block;
+        position: static;
+        background-color:silver ;
+
+      }
+
+      .left .nav a {
+        padding: 0;
+      }
+      /* 设置中间 */
+      .center {
+        order: 1;
+      }
+      /* 设置右边 */
+      .right {
+        order: 3;
+      }    
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- 外部容器 -->
+  <div class="box">
+
+    <!-- 左侧图标 -->
+    <div class="left">
+      <ul class="ico">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+
+      <!--下拉框 -->
+      <div class="nav">
+        <ul class="hid">
+          <li><a href="">首页信息 </a></li>
+          <li><a href="">巴拉巴拉</a></li>
+          <li><a href="">哔哩哔哩</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 中间部分 -->
+    <div class="center">
+      <h2>美图手机</h2>
+    </div>
+
+    <!-- 右边 -->
+    <div class="right">
+      <i class="iconfont">&#xe617;</i>
+
+    </div>
+
+  </div>
+  
+</body>
+</html>

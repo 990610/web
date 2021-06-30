@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <span v-if='isUser'>
+      <label for="usernamae">用户账号</label>
+      <input type="text"  id="usernamae" placeholder="输入用户账号" key="abc"><!-- key决定了当切换类型后，输入框的文字会不会保留（相同则保留） -->
+    </span>
+    <span v-else='isUser'>
+      <label for="userEmail">用户邮箱</label>
+      <input type="text"  id="userEmail" placeholder="输入用户邮箱" key="bcd">
+    </span>
+    <button v-on:click='user'>切换类型</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const box = new Vue({
+      el:'#box',
+      data:{
+        isUser:true,
+      },
+      methods:{
+        user(){
+          this.isUser = !this.isUser
+          return this.isUser
+        },
+      },
+
+    });
+  </script>
+</body>
+</html>

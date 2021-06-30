@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    {{full}}
+
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const box = new Vue({
+      el:'#box',
+      data:{
+        message:'卢本伟',
+        lastmessage:'牛逼',
+
+      },
+      computed:{
+
+        // full:{
+        //   /* 计算属性一般是没有set方法，是只读属性 */
+        //   set:function(){
+
+        //   },
+        //   get:function(){
+        //     return this.message + this.lastmessage
+        //   }
+        // }
+
+        /* 简写 */
+        full:function(){
+          return this.message + this.lastmessage
+        }
+
+       
+      }
+
+
+
+    })
+  </script>
+  
+</body>
+</html>

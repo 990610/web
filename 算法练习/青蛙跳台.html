@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。
+    // 求跳上n级台阶总共有多少种跳法
+    function ways(n) {
+      let dp = [];
+      dp[0] = 1;
+      dp[1] = 1;
+      for (let i = 2; i <= n; i++) {
+        let c = dp[i-1] + dp[i-2];
+        dp[i] = c
+      }
+      console.log (dp[n])
+    }
+    ways(3);
+    // 跟斐波拉契一样，只是输出n2而已
+    // n1 n2 sum
+    // 0 1 1
+    // 1 1 2
+    // 1 2 3
+    // 2 3 5
+    // 3 5 8 
+    function fib(n) {
+      let n1 = 1, n2 = 1 ,sum;
+      for(let i = 0; i < n-1; i++) {
+        sum = (n1 + n2);
+        n1 = n2;
+        n2 = sum;
+      }
+      console.log(n2)
+    } 
+    fib(4)
+  </script>
+</body>
+</html>

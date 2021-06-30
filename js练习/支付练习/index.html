@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../样式重置/reset.css">
+  <style>
+    .menu {
+      width: 200px;
+      height: auto;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: silver;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li>商品</li>
+      <li>原价</li>
+      <li>现价</li>
+      <li>内容</li>
+      <li>地址</li>
+    </ul>
+    <div>
+      <button>取消</button>
+      <button>支付</button>
+    </div>
+  </div>
+  <!-- 点击支付，跳转到成功支付页面-->
+  <script>
+    let btn = document.getElementsByTagName('button')[1];
+    btn.onclick = function () {
+     let res = window.confirm("确定支付吗");
+     if (res) {
+       location.href = './确认支付.html'
+     }
+    }
+    
+  </script>
+  
+</body>
+</html>

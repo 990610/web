@@ -1,0 +1,16 @@
+{
+  "id": "2262687",
+  "name": "jidong",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6237080",
+      "name": "微博",
+      "font_class": "tubiaozhizuo-",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    }
+  ]
+}

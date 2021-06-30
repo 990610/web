@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../样式重置/reset.css">
+  <style>
+    .box {
+      width: 300px;
+      height: 30px;
+      border: 1px solid black ;
+      margin: 20px auto;
+      border-radius: 10px;
+      position: relative;
+    }
+    /* 进度条的样式 */
+    .pro {
+      width: 0px;
+      height: 30px;
+      border-radius: 10px;
+      background-color: silver;
+      margin: 0px;
+    }
+    .btn {
+      width: 250px;
+      margin: 0 auto;
+    }
+    span {
+      padding: 0px 10px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <!-- 外部容器 -->
+  <div class="box">
+    <!-- 进度条 -->
+    <div class="pro">
+      <span>0</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span>%</span>
+    </div>
+
+  </div>
+  <div class="btn">
+    <button>安装</button>
+  </div>
+  <!--点击安装，1.进度条递增，2.显示%  -->
+  <script>
+    var btn = document.getElementsByTagName('button')[0];
+    var pro = document.getElementsByClassName('pro')[0];
+    document.getElementsByTagName('span')[0].innerHTML
+    var timer = null;
+    btn.onclick = function() {
+      let num = 0;
+      if(timer == null) {
+        timer = setInterval(() => {
+          num += 10;
+          pro.style.width = num + 'px';
+          document.getElementsByTagName('span')[0].innerHTML = Math.floor(num / 300 * 100);
+          if(num == 300) {
+            clearInterval(timer)
+          }
+        },100)
+      }
+    }
+
+  </script>
+  
+</body>
+</html>

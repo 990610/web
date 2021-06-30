@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            text-align: center;
+        }
+        img{
+            width: 500px;
+            height: 500px;
+        }  
+        
+    </style>
+
+    <script>
+        window.onload = function(){
+            /* 
+            点击按钮切换图片
+            */
+            /* 获取按钮 */
+            var prev = document.getElementById("prev");
+            var next = document.getElementById("next");
+
+            /* 获取img标签 ,两种方法*/
+            var img = document.getElementsByTagName("img")[0];
+            // var img = document.getElementById("123");
+            var inf = document.getElementById("inform");
+
+            /* 创建一个数组，存放图片的路径 */
+            var Array = ["./img/1.JPG","./img/2.JPG","./img/3.JPG","./img/4.JPG","./img/5.JPG"];
+            /* 创建一个变量来表示数组索引 */
+            var index = 0;
+             
+            /* 绑定单击相应函数*/
+             prev.onclick = function(){
+                index--;
+                if (index < 0) {
+                     
+                     index = Array.length - 1;
+                     
+                 }
+                 img.src = Array[index];
+                 inf.innerHTML = "一共"+ Array.length +"张，这是第" +(index + 1)+"张";
+                
+             };
+             next.onclick = function(){
+                 index++;
+                 if (index > Array.length - 1) {
+                     index = 0
+                     
+                 }
+                 img.src = Array[index];
+                 inf.innerHTML = "一共"+ Array.length +"张，这是第" +(index + 1)+"张";
+               
+                
+             };
+        };
+    </script>  
+</head>
+<body>
+   <div>
+    <div id="outer">
+        <p id="inform">一共5张，这是第1张</p>
+        <img id="123" src="./img/1.JPG" alt="图片">
+    </div>
+    <div>
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+    
+   </div>
+   
+</body>
+</html>

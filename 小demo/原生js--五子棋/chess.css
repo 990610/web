@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#title{
+  margin: 50px;
+  text-align: center;
+}
+
+#chess{
+  display: block;
+  margin: 50px auto;
+  cursor: pointer;
+  box-shadow:5px 5px 25px pink , -2px -2px 2px #efefef;
+}
+#btn{
+  display: block;
+  background-color: pink;
+  margin: 0 auto;
+  border-radius: 7px;
+  cursor: pointer;
+}

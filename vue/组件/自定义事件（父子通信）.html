@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 父模板 -->
+  <div id="box">
+    <cpn @itemclick='cpnClick'></cpn>
+  </div>
+
+  <!-- 子模板 -->
+  <template id="c">
+    <div>
+      <button v-for='items in categories' @click='btnClick(items)' >
+        {{items.name}}
+      </button>
+    </div>
+    
+  </template>
+
+  <script src="/vue.js"></script>
+
+  <script>
+
+const cpn = {
+      template:'#c',
+      data(){
+        return{
+          categories:[
+            {id: '1', name: '热门推荐'},
+            {id: '2', name: '手机数码'},
+            {id: '3', name: '家用家电'},
+          ]
+        }
+      },
+      methods:{
+        btnClick(items){
+          // console.log(items)
+          //发射自定义事件
+          this.$emit('itemclick',items)
+        }
+      }
+    };
+
+
+
+    //实例(父组件)
+    const box = new Vue({
+      el:'#box',
+      components:{
+        cpn,
+      },
+      methods:{
+        cpnClick(items){
+          console.log(items)
+          
+        }
+      }
+
+
+    });
+    //子组件
+    
+  </script>
+</body>
+</html>

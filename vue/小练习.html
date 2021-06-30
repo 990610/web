@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .color{
+      color: pink;
+    }
+  </style>
+</head>
+<body>
+  <!-- 通过 currentIndex变量 来改变颜色状态 -->
+  <div id="box">
+    <ul>
+      <li v-for='(item,index) in moves'
+          @click = 'liClick(index)'
+          v-bind:class='{color:currentIndex == index}'
+          >{{item}}
+    </li>
+    </ul>
+  </div>
+
+  <script src="../vue.js"></script>
+  <script>
+    const box = new Vue({
+      el:'#box',
+      data:{
+        moves:['海王','海尔兄弟','海贼王'],
+        currentIndex : 0,
+      },
+      methods:{
+        liClick(index){
+          this.currentIndex = index
+
+        },
+
+      },
+    });
+  </script>
+
+</body>
+</html>

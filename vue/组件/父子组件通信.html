@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 父 -->
+  <div id="box">
+    <!-- v-bind不支持驼峰标识，需要用-来标识 -->
+    <cpn v-bind:smovies='movies' :s-message='message'></cpn>
+  </div>
+
+  <!-- 子组件  模板抽离 -->
+  <template id="cpn">
+    <div>
+      <ul>
+        <li v-for='items in smovies'>{{items}}</li>
+      </ul>
+      <h2>{{sMessage}}</h2>
+    </div>
+  </template>
+  <script src="/vue.js"></script>
+  <script>
+    //父传子:props
+    const cpn = {
+      template:'#cpn',
+      //props是属性，smovies，s-message是变量
+
+      
+      // props:['smovies','smessage'],    //数组类型
+
+      //对象类型(限制变量类型)
+      props:{
+        //smovies:Array,//限制smovies是数组类型
+        //驼峰标识
+        sMessage:String,
+        smovies:{
+          type:Array,
+          default:[],
+        }
+      },
+
+      //data必须是函数
+     /*  data(){
+        return {}
+      } */
+    };
+
+
+    // 父组件
+    const box = new Vue({
+      el:'#box',
+      data:{
+        message:'卢本伟',
+        movies: ['海王','海贼王','海尔兄弟'],
+      },
+      components:{
+        cpn,
+
+      },
+    });
+  </script>
+  
+</body>
+</html>

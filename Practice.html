@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 定义检查数据类型的函数
+    function check(item) {
+      return Object.prototype.toString.call(item).slice(8, -1)
+      // 不要slice则会输出[object Object]
+    }
+    let a = {name:'piyaunxing'}
+    let b = [1,2]
+    // check(a)
+    console.log(check(a))
+    console.log(check(b))
+  </script>
+</body>
+</html>

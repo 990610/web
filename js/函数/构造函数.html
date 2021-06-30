@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        function Person(name, age){
+            this.name =  name;
+            this.age = age;
+           /*  this.sayname = function (){
+                console.log(this.name);
+            }; */
+            console.log(this.name);
+
+        }
+        var per = new Person('pp',20);
+        var per2 = new Person('ysy',66);
+        console.log(per);
+        console.log(per2);
+        
+    </script> -->
+
+
+
+
+    <script>
+        //创建一个构造函数Person;
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+     
+
+        //向Person的原型中添加方法（sayname）
+        Person.prototype.sayname = function(name,age,gender){
+            console.log(this.name);
+
+            sayname.gender = '无';   
+        };
+        
+       //对象自身的属性会覆盖原型对象的属性
+
+        var per = new Person('pp',18,'男');
+        var per2 = new Person('ysy',66,'男');
+        var per3 = new Person('yy',00,'无');
+
+        
+        console.log(per);
+        console.log(per2);
+        console.log(per3);
+        
+        console.log( per.__proto__ == per2.__proto__ );//true 
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

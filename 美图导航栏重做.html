@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./样式重置/reset.css">
+  <link rel="stylesheet" href="./img/用户图标/iconfont.css">
+  <style>
+    .bar {
+      height: 48px;
+      padding: 0 50px;
+      background-color: silver;
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      position: relative;
+
+    }
+    .menu-ico li {
+      width: 20px;
+      height: 1px;
+      position: absolute;
+      background-color: black;
+    }
+    .menu-ico li:nth-child(1) {
+      top : 14px
+    }
+    .menu-ico li:nth-child(2) {
+      top : 20px
+    }
+    .menu-ico li:nth-child(3) {
+      top : 26px
+    }
+
+  </style>
+
+</head>
+<body>
+  <!-- 外部容器 -->
+  <div class="bar">
+    <!-- 左侧菜单 -->
+    <div class="menu">
+      <!-- 图标 -->
+        <ul class="menu-ico">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+    </div>
+    <!-- 中间 -->
+    <div class="center">
+      美图手机
+    </div>
+    <!-- 右侧用户 -->
+    <div class="user">
+      <i class="iconfont">&#xe617;</i>
+    </div>
+  </div>
+</body>
+</html>

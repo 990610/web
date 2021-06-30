@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../样式重置/reset.css">
+  <style>
+    .big {
+      width: 300px;
+      height: 300px;
+      margin: 10px 0px;
+    }
+    .big img {
+      width: 100%;
+    }
+    .imgs {
+      width: 100px;
+      height: 100px;
+      display: flex;
+    }
+    .imgs img{
+      width: 100%;
+      margin: 0 2px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div>
+    <div class="big">
+      <img src="../../img/魔方图片/01.png" alt="">
+    </div>
+    <div class="imgs">
+      <img src="../../img/魔方图片/02.png" alt="">
+      <img src="../../img/魔方图片/03.png" alt="">
+      <img src="../../img/魔方图片/04.png" alt="">
+    </div>
+  </div>
+  <!-- 相册选择 -->
+  <script>
+    var imgs = document.getElementsByTagName('img');
+    for(let i = 1; i < imgs.length; i++) {
+      imgs[i].onmousemove = function() {
+        imgs[0].src = imgs[i].src;
+      }
+    }
+
+  </script>
+</body>
+</html>

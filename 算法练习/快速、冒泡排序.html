@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+// 快速排序
+    function quickSort(arr, i, j) {
+      if(i < j) {
+        let left = i;
+        let right = j;
+        let pivot = arr[left];
+        while(i < j) {
+          while(arr[j] >= pivot && i < j) {  // 从后往前找比基准小的数
+            j--;
+          }
+          if(i < j) {
+            let temop = arr[i]
+            // arr[i++] = arr[j];//先运算，再加减
+            arr[i] = arr[j];
+            arr[j] = temop
+            i++;
+          }
+          while(arr[i] <= pivot && i < j) {  // 从前往后找比基准大的数
+            i++;
+          }
+          if(i < j) {
+            // arr[j--] = arr[i];
+            let temp = arr[j] // 如果没有置换这一步，就必须在循环外置换 arr[i] = pivot; 
+            arr[j] = arr[i]
+            arr[i] = temp
+            j--
+          }
+        }
+        // arr[i] = pivot; 
+        quickSort(arr, left, i-1);
+        quickSort(arr, i+1, right);
+        return arr;
+      }
+    }
+    // example
+    let arr = [2,9,4,8,1,0,9,5,10,2,3];
+    console.log(quickSort(arr, 0 , arr.length-1));
+
+
+// 冒泡排序
+    var sort = function(arr) {
+      // 比几趟
+      for(let i = 0; i < arr.length-1; i++) {
+        // 每次比一个数
+        for(let j = 0; j < arr.length-i-1; j++) {
+          if (arr[j] > arr[j+1]) {
+            var temp = arr[j]
+            arr[j] = arr[j+1]
+            arr[j+1] = temp
+          }
+        }
+      }
+      return arr
+    }
+    console.log(sort([4,2,1,3,1,1,5]));
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>京东</title>
+  <link rel="stylesheet" href="./样式重置/reset.css">
+  <link rel="stylesheet" href="./img/map小图标/iconfont.css">
+  <link rel="stylesheet" href="./img/下箭头图标/iconfont.css">
+
+  <style>
+
+    /* 解决高度坍塌 */
+    .clearfix::before,
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .box {
+      width: 100%;
+      background-color: #999;
+      box-shadow: 0px 1px 1px rgba(221,221,221,0.5);
+      font: 12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+    }
+    .center {
+      width: 990px;
+      /* 设置水平居中 */
+      margin: 0px auto;
+      /*设置行高，没有设置高度，使文字垂直居中 */
+      line-height: 30px;
+     
+    }
+     
+    .location {
+      width: 50px;
+      float: left;
+      /* 子绝父相 */
+      position: relative;
+    }
+    
+    .location:hover {
+      background-color: white;
+      border: 0px solid transparent;
+    }
+
+    /* 设置下拉框 */
+    .location .city-list {
+      display: none;
+      width: 320px;
+      height: 436px;
+      border: 1px solid rgb(204, 204, 204);
+      background-color: white;
+      box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    }
+
+    /* 设置选中选中下拉框出现 */
+    .location:hover .city-list {
+      display: block;
+      /* 子绝父相 ，有一个相对高的层级*/
+      z-index: 999;
+      position: absolute;
+      
+    }
+
+
+
+    /* 让fr整体跑右边去 */
+    .fr {
+      float: right;
+    }
+    /* 让fr里面的东西左浮动 */
+    .fr a, 
+    .fr li,
+    .fr i{
+      float: left;
+    }
+    /* 设置分割线 */
+    li.line {
+      background-color:rgb(238, 224, 224);
+      width: 1px;
+      height: 10px;
+      margin: 10px 12px 0px;
+      /* 设置下边距0，不会整体撑高 */
+    }
+    /* 设置hover效果 */
+    .box a:hover {
+      color: red;
+    } 
+    .location:hover a,.location i {
+      color: red;
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+  <!-- 外部容器 -->
+  <div class="box clearfix" >
+    <!--内部容器  -->
+    <div class="center ">
+      <div class="location">
+        <i class="iconfont ">&#xe65d;</i>
+        <a href="">重庆</a>
+        <div class="city-list">
+        </div>
+      </div>
+
+      <div class="fr">
+        <a href=""> <div>你好，请登录</div></a>
+        <li class="line"></li>
+        
+        <a href=""> <div>我的订单</div></a>
+        <li class="line"></li>
+
+        <a href=""> <div>我的京东</div> </a>
+        <i class="iconfont"> &#xe731;</i>
+        <li class="line"></li>
+
+        <a href=""> <div>京东会员</div></a>
+        <li class="line"></li>
+
+        <a href=""> <div>企业采购</div></a>
+        <i class="iconfont"> &#xe731;</i>
+        <li class="line"></li>
+
+        <a href=""> <div>客户服务</div></a>
+        <i class="iconfont"> &#xe731;</i>
+        <li class="line"></li>
+
+        <a href=""> <div>网站导航</div></a>
+        <i class="iconfont"> &#xe731;</i>
+        <li class="line"></li>
+
+        <a href=""> <div>手机京东</div></a>
+        <li class="line"></li>
+      </div>
+
+
+      
+    </div>
+  </div>
+  
+</body>
+</html>

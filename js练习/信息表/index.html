@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../样式重置/reset.css">
+  <style>
+    *{
+      padding: 2px;
+      margin: 5px;
+    }
+    fieldset {
+      margin: 0 auto;
+      width: 450px;
+      border: 3px solid silver;
+    }
+    table {
+      margin: 20px auto;
+      width: 450px;
+      /* 设置了td 的边框就不用了设置table的 */
+      /* border: 2px solid black; */
+      border-collapse: collapse;
+      text-align: center;
+    }
+    td {
+      border: 1px solid black ;
+      width: 500px;
+    }
+    thead{
+      /* position: fixed; */
+      width: 450px;
+      background-color: yellowgreen;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="table">
+    <fieldset>
+      <legend>信息表</legend>
+      姓名：<input type="text"><br>
+      年龄：<input type="text"><br>
+      <p>性别：
+        <select name="gender" id="sex">
+          <option value="男">男</option>
+          <option value="女">女</option>
+        </select>
+      </p>
+      手机：<input type="text">
+      <p>
+        <button id="btn">确认提交</button>
+      </p>
+    </fieldset>
+  </div>
+
+  <div class="show">
+    <table>
+       <!-- 表头部分 -->
+      <thead>
+        <!-- 表头内容 -->
+            <tr>
+              <td>姓名</td>
+              <td>年龄</td>
+              <td>性别</td>
+              <td>手机</td>
+              <td>删除</td>
+              
+            </tr>
+      </thead>
+      <!-- 表中间 -->
+      <tbody>
+        <!-- <tr>
+          <td>张三</td>
+          <td>18</td>
+          <td>男</td>
+          <td>15512121212</td>
+          <td>删除</td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+  <!-- 1.添加信息 ，放到数组中进行遍历，-->
+  <!-- 模拟数组 -->
+  <!-- let arr = [{name:'张三',age:'18',gender:'男',phone:'1551231'},{name:'张三',age:'18',gender:'男',phone:'1551231'}] -->
+  <script>
+    var ipt = document.getElementsByTagName('input');
+    var sex = document.getElementById('sex');
+    var btn = document.getElementById('btn');
+    var tbody = document.getElementsByTagName('tbody')[0];
+    let arr = [];
+    btn.onclick = function() {
+      let obj = {name: ipt[0].value, age: ipt[1].value, gender: sex.value, phone: ipt[2].value};
+      arr.push(obj);
+      // console.log(obj);
+      var res = '';
+      arr.forEach((item,index) => {
+        res += `<tr class="newTr">`+`
+          <td>`+ item.name + `</td>
+          <td>`+ item.age + `</td>
+          <td>`+ item.gender + `</td>
+          <td>`+ item.phone + `</td>
+          <td  id='td' onclick='del("index")'>删除</td>
+        </tr>` ;
+      });
+      // console.log(res);
+      tbody.innerHTML = res; 
+    }
+    //1.删除数组里的数据，2.删除DOM上的数据
+    function del(index) {
+
+      // 删除数组里的数据
+      arr.splice(index,1);
+
+      // 删除DOM上的数据
+      let tr = document.getElementById('td').parentNode;
+      tr.parentNode.removeChild(tr);
+    }
+
+
+  </script>
+
+
+</body>
+</html>

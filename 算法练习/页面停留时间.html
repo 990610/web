@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="Test.html" target="_blank">555</a>
+  <script>
+    function getTime() {
+      // 返回的是1970年1.1以来的毫秒数
+      let nowTime = Date.now()
+      return nowTime
+    }
+
+    // 当浏览器窗口关闭或者刷新时，会触发beforeunload事件
+    // 整个页面及所有依赖资源加载完或者刷新时，会触发load事件
+    window.addEventListener('load', function() {
+      let nowTime = Date()
+      console.log('111');
+      // localStorage.setItem('startTime',nowTime)
+      console.log(nowTime);
+      // localStorage.removeItem('startTime')
+      // localStorage.removeItem('endTime')
+    })
+    window.addEventListener('beforeunload',function() {
+      let nowTime = Date()
+      // localStorage.setItem('endTime',nowTime)
+      console.log(nowTime);
+    })
+    function sum(x,y) {
+      return x+y
+    }
+    let x = sum(1,2)
+    console.log(x);
+
+
+
+  </script>
+</body>
+</html>

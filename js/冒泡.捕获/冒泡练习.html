@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            background-color: cadetblue;
+        }
+        #u1{
+            width: 300px;
+            height: 300px;
+            background-color: cyan;
+        }
+        .a1{
+           
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 冒泡 -->
+    <div id="box">
+        <ul id="u1">
+            <li class="a1"><a href="">百度</a></li>
+            <li class="a1"><a href="">百度</a></li>
+        </ul>
+    </div>
+    <script>
+        var box = document.getElementById("box");
+        var u1 = document.getElementById("u1");
+        var a1 = document.getElementsByClassName("a1");
+
+        //给div绑定事件。
+        box.onclick = function(){
+             alert("我是box的单击事件")
+
+        };
+        //给超链接绑定事件。
+        //去除冒泡.
+        for(var i = 0 ; i < a1.length ; i++){
+            a1[i].onclick = function(event){
+                event.cancelBubble = true;//去除冒泡。
+                alert("我是li的单击事件");
+            };
+        }
+        //给ul绑定事件。
+        u1.onclick = function(){
+            alert("我是ul的单击事件");
+        };
+    </script>
+</body>
+</html>

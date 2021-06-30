@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="/vue.js"></script>
+  <script>
+
+    //filter,map,reduce高阶函数的使用
+    
+    const nums = [40,20,30,50,100,55];
+
+
+    //1.将小于60的数提取出来
+    let newNums = nums.filter(function(n){
+      return n < 60;
+    });
+    console.log(newNums);
+
+
+    //2.将每个新的数*2
+    let newNums2 = newNums.map(function(n){
+      return n*2;
+
+    });
+    console.log(newNums2);
+    //3.将数组中的新数全部相加  reduce函数需要两个参数，一个是函数，一个数字
+    //n每一次传的是数组里的数
+    //preValue是上一次的 return值(第一次是传的0)
+    let total = newNums2.reduce(function(preValue,n){
+      return preValue + n;
+    },0);
+    console.log(total);
+
+
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,20 @@
+a:link{/*超链接为点击时的状态*/
+    color: hotpink;
+}
+a:visited{/*超链接点击后的状态*/
+    color: chocolate;
+    font-size:5em;
+}
+
+
+a:hover{/*选中鼠标悬停时的a元素的状态*/
+    color:black ;
+    font-size:2em;
+
+}
+a:active{/*鼠标点击时的状态*/
+    color:#008c8c;
+    font-family: 'Courier New', Courier, monospace;
+    font-size:1em;
+}
+/*且按以上顺序写这四个伪类*（爱恨法则 lv ha）/

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- 完美视口 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>皮皮</title>
+  <link rel="stylesheet" href="./样式重置/reset.css">
+  <style>
+    html {
+      perspective: 800px;
+      background-color: black;
+    }
+    .box {
+      width: 250px;
+      height: 250px;
+      /* background-color: silver; */
+      margin: 200px auto;
+      /* 设置3d变形效果 */
+      transform-style: preserve-3d;
+      animation: run 8s alternate infinite;
+    }
+    .box div {
+      width: 250px;
+      height: 250px;
+      /* 给元素添加透明 */
+      opacity: 0.8;
+      position: absolute;
+    }
+    img {
+      vertical-align: top;
+    }
+/* 第一个 */
+    .first,.first-1 {
+      transform: rotateY(90deg) translateZ(125px);
+    }
+    .box:hover .first-1  {
+      /* transition过渡 */
+      transition:  2s;
+      transform: rotateY(90deg) translateZ(250px);
+    }
+/* 第二个 */
+    .second,.second-2 {
+      transform: rotateY(-90deg) translateZ(125px);
+    }
+    .box:hover .second-2 {
+      transition: all 2s;
+      transform: rotateY(-90deg) translateZ(250px);
+    }
+/* 第三个 */
+    .third , .third-3{
+      transform: rotateX(90deg) translateZ(125px);
+    }
+    .box:hover .third-3{
+      transition: all 2s;
+      transform: rotateX(90deg) translateZ(250px);
+    }
+/* 第四个 */
+    .fourth , .fourth-4{
+      transform: rotateX(-90deg) translateZ(125px);
+    }
+    .box:hover .fourth-4{
+      transition: all 2s;
+      transform: rotateX(-90deg) translateZ(250px);
+    }
+/* 第五个 */
+    .fifth , .fifth-5{
+      transform: rotateY(180deg) translateZ(125px);
+    }
+    .box:hover .fifth-5{
+      transition: all 2s;
+      transform: rotateY(180deg) translateZ(250px);
+    }
+/* 第六个 */
+    .sixth , .sixth-6{
+      transform: translateZ(125px);
+    }
+    .box:hover .sixth-6{
+      transition: all 2s;
+      transform: translateZ(250px);
+    }
+   
+    /* 添加动画 */
+    @keyframes run {
+      from {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+      }
+      to {
+        transform: rotateX(0) rotateY(1turn) rotateZ(1turn);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <!--让两张图片重叠，一张用来构建魔方，一张用来做hover效果  -->
+    <div class="first">
+      <img src="./img/魔方图片/01.png" alt="">
+    </div>
+
+    <div class="second">
+      <img src="./img/魔方图片/02.png" alt="">
+    </div>
+
+    <div class="third">
+      <img src="./img/魔方图片/03.png" alt="">
+    </div>
+
+    <div class="fourth">
+      <img src="./img/魔方图片/04.png" alt="">
+    </div>
+
+    <div class="fifth">
+      <img src="./img/魔方图片/05.png" alt="">
+    </div>
+
+    <div class="sixth">
+      <img src="./img/魔方图片/06.png" alt="">
+    </div>
+
+    <div class="first-1">
+      <img src="./img/魔方图片/01.png" alt="">
+    </div>
+
+    <div class="second-2">
+      <img src="./img/魔方图片/02.png" alt="">
+    </div>
+
+    <div class="third-3">
+      <img src="./img/魔方图片/03.png" alt="">
+    </div>
+
+    <div class="fourth-4">
+      <img src="./img/魔方图片/04.png" alt="">
+    </div>
+
+    <div class="fifth-5">
+      <img src="./img/魔方图片/05.png" alt="">
+    </div>
+
+    <div class="sixth-6">
+      <img src="./img/魔方图片/06.png" alt="">
+    </div>
+
+  </div>
+</body>
+</html>

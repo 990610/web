@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 滑动窗口（数组）
+    var lengthOflongestSubstring = function(s) {
+      let res = [],length = 0;
+      for(let i = 1; i < s.length; i++) {
+        let index = res.indexOf(s[i])
+        if (index != -1) {
+          // 窗口中有这个数
+          res.splice(0,index+1)
+        }
+        res.push(s[i])
+        length = Math.max(res.length,length)
+
+      }
+      return {a:res,b:length}
+    }
+    let x = lengthOflongestSubstring('pwwkew')
+    // 只能求出长度，不能求出最长子串
+    console.log(x);
+  </script>
+</body>
+</html>

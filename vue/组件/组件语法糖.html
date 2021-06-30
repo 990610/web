@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <cpn1></cpn1>
+    <cpn2></cpn2>
+
+  </div>
+  <!-- 组件模板抽离 -->
+  <template id='cpn2'>
+    <h3>这是组件2</h3>
+  </template>
+  <script src="/vue.js"></script>
+  <script>
+
+   /*  const cpnC3 = Vue.extend({
+      template:`
+      <h2>这是组件1</h2>
+      `
+    }); */
+
+
+
+    //组件语法糖，直接注册组件构造器，不用extend
+    Vue.component('cpn1',{
+      template:`
+      <h2>这是组件1</h2>
+      `
+      
+    });
+    
+    Vue.component('cpn2',{
+      // 组件模板抽离
+      template:'#cpn2',
+    });
+
+
+
+
+    const box = new Vue({
+      el:'#box',
+      
+
+    });
+  </script>
+  
+</body>
+</html>

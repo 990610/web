@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 150px;
+            height: 150px;
+            background-color: yellow;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <script>
+        var speed = 0;//表示速度
+        var num = 0;//表示方向
+        var box1 = document.getElementById("box1");
+        document.onkeydown = function(event){
+            var event = event || window.event;
+            num = event.keyCode ;
+            if(event.ctrlKey){
+                speed = 15;
+            }else{
+                speed = 5;
+            };
+            document.onkeyup = function(){
+                num = 0;
+            };
+        };
+        setInterval(function(){
+            switch(num){
+                 //左37，上38，右39，下40
+                case 37:
+                    box1.style.left = box1.offsetLeft - speed+"px";
+                    break;
+                case 38:
+                box1.style.top = box1.offsetTop - speed +"px";
+                    break;
+                case 39:
+                    box1.style.left = box1.offsetLeft + speed +"px";
+                    break;
+                case 40:
+                box1.style.top = box1.offsetTop + speed +"px";
+                    break;
+            }
+        },30);
+    </script>
+     
+</body>
+</html>

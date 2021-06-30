@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    width: 500px;
+    height: 400px;
+
+}
+#outer{
+    background-color:greenyellow;
+    width: 510px;
+    height: 400px;
+    padding:5px 0px;
+    margin: 50px 400px;
+    /* 相对定位 */
+    position: relative;
+    overflow: hidden;
+}
+/* 设置ul */
+#imgList{
+    list-style: none;
+    /* 开启定位 (子元素绝对定位，父元素相对定位)*/
+    position: absolute;
+    /* 每向左移动510，则会显示下一张 */
+    left: 0px;      
+}
+/* 设置li */
+#imgList li{
+    float: left;
+    padding: 0 5px;
+}
+/* 设置导航按钮 */
+#navDiv{ 
+    position: absolute;
+    bottom: 25px;
+}
+#navDiv a{
+    /* 设置超链接浮动 */
+    float: left;
+    /* 设置超链接宽高 */
+    width: 20px;
+    height: 20px;
+    /* 设置背景颜色 */
+    background-color: red;
+    opacity: 0.5;
+    /* 设置外边距 */
+    margin: 0 5px;
+}
+#navDiv a:hover{
+    background-color: black;
+}

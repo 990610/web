@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定义形参相当于在函数中声明了变量
+         function fn(a) {
+             console.log(a);
+             var a = 123;
+             console.log(a);
+            //  function a (){};
+             console.log(a);
+             var b = function () {};
+             console.log(b);
+             function d () {};
+        }
+        fn(1);
+    </script>
+    <!-- <script>
+        function test(a,b) {
+        console.log(a);
+          
+        console.log(b);
+        var b = 234;
+        console.log(b);
+        a = 123;
+        console.log(a);
+        function a () {};
+        var a;
+        b = 234;
+        var b = function () {};
+        console.log(a);
+        console.log(b);
+        }
+        test(1);
+    </script>
+    <script>
+        function add(num){
+            num += 10 ;
+            return num;
+        }
+        var count = 20 ;
+        var result = add(count);
+       /*  console.log(count);
+        console.log(num);
+        console.log(result); */
+        alert(count);
+        alert(result);
+    </script> -->
+
+   <!--  <script>
+        //var a;   
+        console.log(a);
+        var a = 10;
+        //a = 10;
+        console.log(a);
+    </script> -->
+
+
+    <!-- <script>
+        //console.log(c);
+        c = 10;
+        console.log(window.c);
+    </script> -->
+</body>
+</html>

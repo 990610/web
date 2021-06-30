@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css重置样式/normalize.css/normalize.css">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .slide-center {
+      text-align: center;
+
+    }
+    .slide-box {
+      margin: 50px 25%;
+      
+      top: 200px;
+      text-align: center;
+      width: 500px;
+      /* background-color: #f6f6f6; */
+    }
+    img{
+      max-width: 50%;
+    }
+   
+  </style>
+</head>
+<body>
+  <div id ="app">
+    <div class="slide-center">
+      <div class="slide-box">
+        <a>
+      <img v-for= '(item,index) in slideList' v-show='n==index'
+       :key = 'index' :src="item" @mouseenter='cleargo' @mouseLeave='go'>
+        </a>
+      </div>
+      <div>
+        <ul class="slide-index">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        slideList:[
+          './img/01.png',
+          './img/02.png',
+          // './img/IMG_0072.JPG',
+          // './img/IMG_0073.JPG',
+        ],
+        n: 0,
+        indexID: null
+      },
+      methods: {
+        go() {
+          this.indexID = setInterval(() => {
+            this.n ++;
+            if(this.n == this.slideList.length - 1){
+              this.n = 0;
+            }
+          },1000)
+        },
+        cleargo() {
+          clearInterval(this.indexID)
+        }
+      },
+      mounted() {
+        this.go()
+      }
+    })
+
+  </script>
+  
+</body>
+</html>

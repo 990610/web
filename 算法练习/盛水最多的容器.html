@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 盛水最多
+    // 输入：[1,8,6,2,5,4,8,3,7]
+    // 输出：49 
+    var maxArea = function(arr) {
+      // 双指针
+      let res = 0, sum, left = 0, right = arr.length - 1
+      while(left < right) {
+        // 容纳水量:两个指针指向的数字中的较小值 * 指针之间的距离
+        sum = Math.min(arr[left],arr[right]) * (right - left)
+        // 每移动一次比一次，取盛水最大的容器
+        res = Math.max(sum,res)
+        // 移动数子小的指针
+        if (arr[left] < arr[right]) {
+          left++
+        }else {
+          right--
+        }
+      }
+      return res
+    }
+  </script>
+</body>
+</html>

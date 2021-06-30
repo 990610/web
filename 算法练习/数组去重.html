@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+//方法一： 
+    // 在一个长度为n的数组nums里的所有数字都在0~n-1，某些数字重复，
+    // 但不知道有几个重复，也不知道重复了几此，找出任意一个重复的数字
+    function find(nums) {
+      let s = new Set;
+      for(let i = 0; i<nums.length; i++) {
+        let currentLength = s.size;
+        s.add(nums[i]);
+        if(currentLength == s.size) 
+          console.log(nums[i])
+      }
+    }
+    find([1,2,2,3,5,5]);
+// 方法二
+    function find(arr) {
+      for(let i = 0; i < arr.length; i++) {
+        for(let j = i+1; j < arr.length; j++) {
+          if (arr[i] === arr[j]) {
+            arr.splice(j,1)
+            // 因为去掉了一个数，所以要退一步，重新比
+            j--
+          }
+        }
+      }
+      return arr
+    }
+    let x = find([1,2,3,5,3,3,4])
+    console.log(x);
+
+  </script>
+</body>
+</html>

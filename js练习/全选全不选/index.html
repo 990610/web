@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="checkbox" class="list" >高数
+    <input type="checkbox" class="list">大物
+    <input type="checkbox" class="list">现代
+  </div>
+  <div class="box">
+    <button class="btn">全选</button>
+    <button class="btn">全不选</button>
+    <button class="btn">反选</button>
+  </div>
+  <!--选中的三个形式：1.用户勾选 2.在标签上添加checked属性 3.用js，使checked=true-->
+  <script>
+    var list = document.getElementsByClassName('list');
+    var btn = document.getElementsByClassName('btn');
+    // 全选
+    btn[0].onclick = function() {
+      for(let i = 0; i < list.length; i++) {
+      list[i].checked = true;
+      }
+    }
+    // 全不选
+    btn[1].onclick = function() {
+      for(let i = 0; i < list.length; i++) {
+        list[i].checked = false;
+      }
+    }
+    btn[2].onclick = function() {
+      for(let i = 0; i < list.length; i++) {
+        // 反选
+        list[i].checked = !list[i].checked;
+      }
+    }
+
+  </script>
+
+  
+</body>
+</html>

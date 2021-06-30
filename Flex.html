@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./样式重置/reset.css">
+  <style>
+    html {
+      perspective: 600000px;
+      background-color: black;
+    }
+    .box {
+      width: 20vh;
+      height: 20vh;
+      margin: 50px 500px;
+      /* 3D效果 父元素必须设置焦距 */
+      transform-style: preserve-3d;
+      animation: run 5s ease-out 0s infinite;
+      /* animation-play-state:running */
+    }
+    .box div {
+      width: 20vh;
+      height: 20vh;
+      border: 1px solid black;
+      background-color:white;
+      display: flex;
+      /* 设置绝对定位让与元素重叠 */
+      position: absolute;
+      /* 设置透明度 */
+      /* opacity: 0.5; */
+      border-radius: 20px;
+    }
+    .box div:nth-child(1) {
+      /* 1 */
+      transform: rotateY(90deg) translateZ(10vh);
+      justify-content: center;
+      align-items: center;
+    }
+    .box div:nth-child(2) {
+      /* 6 */
+      transform: rotateY(-90deg) translateZ(10vh);
+      flex-flow:column wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    /* 2 */
+    .box div:nth-child(3) {
+      transform: translateZ(10vh) ;
+      flex-flow: column ;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /* 5 */
+    .box div:nth-child(4) {
+      transform: translateZ(-10vh);
+      flex-flow: row wrap;
+      justify-content: space-around;
+    }
+    /* 3 */
+    .box div:nth-child(5) {
+      transform: rotateX(90deg) translateZ(10vh);
+
+    }
+    /* 4 */
+    .box div:nth-child(6) {
+      transform: rotateX(-90deg) translateZ(10vh);
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: space-between;
+    }
+    /* 红点 */
+    .item {
+      margin: 10px 10px;
+      width: 4vh;
+      height: 4vh;
+      background-color: red;
+      border-radius: 50%;
+    }
+    /*白点 */
+    .white-item {
+      margin: 10px 5px;
+      width: 4vh;
+      height: 4vh;
+      background-color: white;
+      border-radius: 50%;
+    }
+    @keyframes run {
+      from {
+        transform: rotateY(360deg) rotateX(720deg) rotateZ(-720deg);
+      }
+      to {
+        transform: rotateY(-360deg) rotateX(-720deg) rotateZ(720deg);
+      }
+    }
+    /* 也可以设置9个白点，就不用单独设置每个点 */
+    .fifth .item:nth-child(2) {
+      align-self: center;
+    }
+    .fifth .item:nth-child(3) {
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn" style="margin:50px 0px 0px 300px ;">点击暂停</button>
+  <div class="box">
+    <!-- 1 -->
+    <div class="first">
+      <li class="item"></li>
+    </div>
+    <!-- 6 -->
+    <div class="second">
+      <span class="item"></span>
+      <span class="item"></span>
+      <span class="item"></span>
+      <span class="item"></span>
+      <span class="item"></span>
+      <span class="item"></span>
+    </div>
+    <!-- 2 -->
+    <div class="third">
+      <span class="item"></span>
+      <span class="item"></span>
+    </div>
+    <!-- 5 -->
+    <div class="fourth">
+      <span class="item">1</span>
+      <span class="white-item">2</span>
+      <span class="item">3</span>
+      <span class="white-item">1</span>
+      <span class="item">2</span>
+      <span class="white-item">3</span>
+      <span class="item">1</span>
+      <span class="white-item">2</span>
+      <span class="item">3</span>
+    </div>
+    <!-- 3 -->
+    <div class="fifth">
+      <span class="item">1</span>
+      <span class="item">2</span>
+      <span class="item">3</span>
+    </div>
+    <!-- 4 -->
+    <div class="sixth">
+      <span class="item">1</span>
+      <span class="white-item">2</span>
+      <span class="item">3</span>
+      <span class="item">4</span>
+      <span class="white-item">5</span>
+      <span class="item">6</span>
+    </div>
+  </div> 
+  <script>
+    var btn = document.getElementById('btn');
+    var box = document.getElementsByClassName('box')[0];
+    var on = true;
+    btn.onclick = () => {
+      if(on){
+        box.style.animationPlayState = 'paused'
+        on = false
+      }else{
+        box.style.animationPlayState = 'running'
+        on = true
+      }
+
+    }
+  </script>
+</body>
+</html>

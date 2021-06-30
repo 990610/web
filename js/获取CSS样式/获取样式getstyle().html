@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       #box{
+           
+           height: 200px;
+           background-color:cadetblue;
+           margin-top:20px;
+       }
+   </style>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <br>
+    <div id="box"></div>
+
+    
+    <script>
+        var box =document.getElementById("box");
+        var btn =document.getElementById("btn");
+
+        
+        btn.onclick = function(){
+         /*   //正常浏览器
+        //getComputedStyle（）是一个方法
+        //var get = getComputedStyle(元素名，伪元素).样式
+            alert(getComputedStyle(box,null).backgroundColor);
+            getComputedStyle(box,null).width = getComputedStyle(box , null)[width]
+            //IE8
+           alert(box.currentStyle.backgroundColor);  */
+
+          //所以写一个兼容函数，来获取样式。
+        function getStyle(obj , name){
+            if(window.getComputedStyle){
+                return getComputedStyle(obj , null)[name];
+            }else{
+                return obj.currentStyle[name];
+            }  
+        }
+        alert(getStyle(box,"width"));
+        }; 
+       
+       
+
+    </script>
+</body>
+</html>

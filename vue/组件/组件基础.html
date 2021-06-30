@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="box">
+    <!-- 自定义组件 -->
+    <my-cpn></my-cpn>
+  </div>
+
+  <script src="/vue.js"></script>
+
+
+  <script>
+    //组件构造器
+    const cpnc = Vue.extend({
+      template:` 
+       <div>
+       <h2>
+       这是自定义组件
+       </h2>
+       </div>
+      `
+    })
+    //注册组件
+    Vue.component('my-cpn',cpnc)
+
+    const box = new Vue({
+      el:'#box',
+
+    })
+  
+    
+  
+
+  </script>
+  
+
+</body>
+</html>

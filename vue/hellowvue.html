@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <a v-bind:href="aURL">百度一下</a>
+        <!-- 语法糖（简写） -->
+        <a :href="aURL">百度一下</a>
+    </div>
+   
+    <script src="../vue.js"></script>
+    <script>
+        //vue解析之前，div有一个v-cloak属性
+        //vue解析之后，div没有一个v-cloak属性
+        //从上往下渲染的时候，就直接显示该有的效果
+        setTimeout(function(){
+            const app = new Vue({
+            el:'#app',
+            data : {
+                message: 'hellow myVue',  
+                //将数据放在vue进行中转。
+                aURL:'https://www.baidu.com/'
+
+
+                
+
+            }
+
+
+
+
+        })
+        },1000)
+
+       
+    </script>
+
+</body>
+</html>

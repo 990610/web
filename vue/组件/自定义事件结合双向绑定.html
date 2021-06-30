@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 不能子组件和父数据进行双向绑定 ，子组件只能跟自己的数据双向绑定-->
+
+  <div id="box">
+    <!-- 将父组件属性number传给子组件num -->
+    <!-- 编译作用域，相同属性时，父模板对应父实例，子组件对应子模板 -->
+    <cpn :num='number' @numchange='numberchange' v-show='isShow'></cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <h2>父组件的数据：{{num}}</h2> 
+      <h2>子组件：{{dnum}}</h2>
+      <!-- <input type="text" v-model='dnum'> -->
+      <!-- v-model的实质是 v-bind 和 v-on:input -->
+      <input type="text" :value="dnum" @input='dnuminput'>
+    </div>
+  </template>
+
+  <script src="/vue.js"></script>
+  <script>
+    const cpn ={
+      template:'#cpn',
+      props:{
+      num:Number,
+      },
+      data(){
+        return{
+        isShow:false,
+// 将num传给dnum,目的：双向绑定时，不会直接修改props的值（props的数据是父组件传给子组件的）
+          dnum:this.num
+        }
+      },
+      methods:{
+        dnuminput(event){
+          this.dnum = event.target.value;
+          this.$emit('numchange',this.value);
+        }
+      }
+    }
+    const box = new Vue({
+      el:'#box',
+      data:{
+        number :1,
+        isShow:true
+      },
+      components:{
+        cpn,
+      },
+      methods:{
+        numberchange(value){
+          console.log(typeof value)
+          this.number = parseInt(value)
+        }
+      }
+    });
+  </script>
+  
+</body>
+</html>

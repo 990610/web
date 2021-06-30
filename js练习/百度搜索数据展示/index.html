@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 40%;
+      margin: 50px auto;
+      position: relative;
+    }
+    .show {
+      display: none;
+      width: 28%;
+      line-height: 50px;
+      position: absolute;
+      background-color: silver;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <input id="input" type="text" placeholder="请输入名称">
+    <button>提交</button>
+    <div class="show" id="show">
+      
+    </div>
+  </div>
+
+<!--1.展示区域的显示和隐藏 -->
+<!-- 2.和数组的数据进行匹配 -->
+  <script>
+    let arr = ['互联网','游戏中心','腾讯qq','QQ音乐'];
+    var input = document.getElementById('input');
+    var show = document.getElementById('show');
+    input.onkeyup = function() {
+      // 点击则显示
+      show.style.display = 'block';
+
+      // 和数组的字符串进行匹配
+      // indexOf 匹配不到则返回-1
+      let str = '';//接受一串字符，（标签字符串）
+      arr.forEach((item) => {
+        let res = item.indexOf(input.value);
+        if(res != -1) {
+          str += '<p>'+item+'</p>'
+        }
+      })
+      // !str:（不是）（没有）str这个字符串
+      // !input.value:（不是）（没有）input.value这个值
+      if(!this.value || !str){
+        show.innerHTML = '<p>暂无结果</p>'
+      }else{
+        show.innerHTML = str ;
+      }
+    
+    };
+  
+    input.onblur = function() {
+      // 失去焦点则隐藏
+      show.style.display = 'none';
+      input.value = '';
+    }
+
+    
+
+  </script>
+</body>
+</html>

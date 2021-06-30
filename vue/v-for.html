@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <!-- for循环遍历对象（可以没有key） -->
+    <ul>
+      <li v-for="(value,key) in user">{{key}}.{{value}}</li>
+    </ul>
+    <!-- for循环遍历数组 -->
+    <ul>
+      <li v-for="(item,index) in move" :key="item">{{index+1}}.{{item}}</li><!-- key的作用是高效更新虚拟DOM -->
+    </ul>
+
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const box = new Vue({
+      el:'#box',
+      data:{
+        user:{
+          name:'卢本伟',
+          gender:'女',
+          age:18,
+        },
+
+        move:['海王','海上钢琴师','卡布达'],
+        
+
+      },
+
+    });
+  </script>
+</body>
+</html>

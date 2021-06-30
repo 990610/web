@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./购物车.css">
+</head>
+<body>
+  <div id="box">
+    <div v-if='goods.length'>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>商品数量</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for='(items,index) in goods'>
+            <td>{{items.id}}</td>
+            <td>{{items.name}}</td>
+            <td>{{items.price | showPrice}}</td> <!-- 过滤器 |showPrice -->
+            <td>
+              <button @click='decrement(index)'>-</button>
+              {{items.count}}
+              <button @click='increment(index)'>+</button>
+            </td>
+            <td>
+              <button @click='remove(index)'>移除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 过滤器 |showPrice -->
+      <h2>总价：{{totalPrice | showPrice}}</h2>
+    </div>
+    <h2 v-else>购物车为空</h2>
+  </div>
+  <script src="/vue.js"></script>
+  <script src="./购物车.js"></script>
+
+</body>
+</html>
