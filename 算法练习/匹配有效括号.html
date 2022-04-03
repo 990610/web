@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //匹配有效括号
+        function isValue(str) {
+            str = str.split('')
+            let stack = []
+            let map = new Map([[')', '('], [']', '['], ['}', '{']]);
+            if (str.length % 2 === 1) {
+                return false
+            }
+            for (let item of str) {
+                if (map.has(item)) {
+                    if (stack[stack.length - 1] !== map.get(item)) {
+                        return false
+                    } else {
+                        stack.pop()
+                    }
+                } else {
+                    stack.push(item)
+                }
+
+            }
+            return stack.length === 0 ? true : false
+        }
+        console.log(isValue('({}[])'));
+    </script>
+</body>
+
+</html>

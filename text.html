@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./css重置样式/normalize.css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
   <style>
     *{
       margin: 0;
@@ -18,7 +20,7 @@
       margin: 50px 25%;
       
       top: 200px;
-      text-align: center;
+      /* text-align: center; */
       width: 500px;
       /* background-color: #f6f6f6; */
     }
@@ -27,6 +29,7 @@
     }
    
   </style>
+ 
 </head>
 <body>
   <div id ="app">
@@ -38,18 +41,30 @@
         </a>
       </div>
       <div>
-        <ul class="slide-index">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+        <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
+        <el-dialog
+          title="提示"
+          :modal="isShow"
+          center='true'
+          :visible.sync="dialogVisible"
+          width="80%"
+          :before-close="handleClose">
+          <span>这是一段信息</span>
+          <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+          </span>
+        </el-dialog>
+        
 
       </div>
 
     </div>
   </div>
   <script src="./vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+
   <script>
     const app = new Vue({
       el: '#app',
@@ -61,7 +76,9 @@
           // './img/IMG_0073.JPG',
         ],
         n: 0,
-        indexID: null
+        indexID: null,
+        dialogVisible: false,
+        isShow:false,
       },
       methods: {
         go() {
@@ -74,7 +91,14 @@
         },
         cleargo() {
           clearInterval(this.indexID)
-        }
+        },
+        handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
+      }
       },
       mounted() {
         this.go()
